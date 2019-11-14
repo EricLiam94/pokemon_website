@@ -13,7 +13,7 @@ class Users extends Component
 
 componentDidMount()
 {
-    fetch('http://localhost:5000/api/customer',
+    fetch('/api/customer',
     {
       headers : { 
         'Content-Type': 'application/json',
