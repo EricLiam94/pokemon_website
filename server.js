@@ -22,6 +22,8 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.listen(5000, () => {
+const port = process.env.PORT || 5000
+
+app.listen(port, () => {
   console.log("port 5000 is connected");
 });
