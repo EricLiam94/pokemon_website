@@ -3,24 +3,28 @@ import logo from './logo.svg';
 import './App.css';
 import Users from './components/users.js'
 import Nav from './components/nav.js'
+import About from './components/about.js'
+import Dashboard from './components/dashboard.js'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+
+
+
 
 function App() {
   return (
+    <Router>
     <div className="App">
     <Nav/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
        <Users/>
-        <a
-          className="App-link"
-          href="/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          <Switch>
+          <Route path="/about" component = {About} />
+          <Route path="/dashboard" component={Dashboard} />
+        </Switch>
       </header>
     </div>
+    </Router>
   );
 }
 

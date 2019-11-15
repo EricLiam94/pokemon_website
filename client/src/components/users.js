@@ -13,7 +13,7 @@ class Users extends Component
 
 componentDidMount()
 {
-    fetch('/api/customer',
+    fetch('https://test-app-xxxa.herokuapp.com/api/customer',
     {
       headers : { 
         'Content-Type': 'application/json',
@@ -31,8 +31,8 @@ render(){
         <div>
         <h1> Test </h1>
         <ul>
-        {this.state.lists.map(customer => 
-          <li >{customer.name} {customer.age}</li>
+        {this.state.lists.map((customer,index) => 
+          <li key={index} >{customer.name} {customer.age}</li>
         )}
         </ul></div>
         )

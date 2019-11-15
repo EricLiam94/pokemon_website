@@ -5,6 +5,12 @@ const path = require("path")
 
 app.use(cors());
 
+
+app.get("/api/customer/:id",(req,res)=>{
+  console.log(req.params)
+
+})
+
 app.get("/api/customer", (req, res) => {
   const customers = [
     { name: "jack", age: 16 },
