@@ -15,6 +15,10 @@ app.get("/api/customer", (req, res) => {
   res.json(customers);
 });
 
+app.get("/test", (req, res) => {
+  res.send("This is a test");
+});
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
   app.get("*", (req, res) => {
@@ -22,9 +26,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.get("/test", (req, res) => {
-  res.send("This is a test");
-});
+
 
 const port = process.env.PORT || 5000;
 
