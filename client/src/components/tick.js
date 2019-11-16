@@ -11,7 +11,7 @@ function Tick(props) {
   }, []);
   const [sec, setSec] = useState(new Date());
   const element = (
-    <div class="btn btn-danger" role="alert">
+    <div className="btn btn-danger" role="alert">
       {sec.toLocaleTimeString()}
     </div>
   );

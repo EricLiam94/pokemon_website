@@ -7,16 +7,21 @@
 }
 
 nav {
-  display:flex;
+  display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
   background: #575757;
-  color:white;
+  color: white;
 }
 
+.poketable {
+  display: "flex";
+  width: "50%";
+  align-items: "center";
+}
 .nav-link {
-  display:flex;
+  display: flex;
   width: 50%;
   justify-content: space-around;
   align-items: center;
