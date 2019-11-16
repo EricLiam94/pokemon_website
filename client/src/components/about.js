@@ -1,49 +1,56 @@
 import React from "react";
-import {useEffect,useState,useRef} from "react"
-import {Link} from "react-router-dom"
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import PokeCell from "./pokecell.js";
 
-function About (){
+function About() {
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-useEffect(()=>{ 
-fetchData();
-textRef.current.focus()
-},[])
+  const whiteStyle = { color: "white", textDecoration: "none" };
+  const listWidth = { width: "500px", display: "inline-block" };
+  const h4Style = { display: "flex", width: "50%" };
 
-const textRef = useRef()
-const [gameStatus,setGameStatus] = useState([])
-const [toggleOn,setToggle] = useState(false)
-const [text,setText] = useState('');
-const fetchData = async()=>{
-const data = await fetch("https://test-app-xxxa.herokuapp.com/api/customer")
-const items = await data.json();
-setGameStatus(items)
-return 
-}
-function clickHandler(e) {
-  e.preventDefault();
+  const [gameStatus, setGameStatus] = useState([]);
+  const [display, setDisplay] = useState([]);
+  const [nextApi, setApi] = useState({});
+  const fetchData = async () => {
+    const data = await fetch("https://pokeapi.co/api/v2/pokemon");
+    const items = await data.json();
+    setApi(items.next);
+    console.log(items.next);
+    setGameStatus(items.results);
+    setDisplay(items.results);
+  };
 
-  if(e.target.type==="button")
-    setToggle( (toggleOn) => !toggleOn );
-    else if(e.target.type ==="text2")
-      setText((text)=> text.subString(0,text.length()-3))
-    else
-      setText(e.target.value)
-};
-
-      const v1 = text
-      const v2 = text + 'asd'
-        return(
-            <div>
-            <button id='btn' type="button" onClick={clickHandler} value={toggleOn}> {toggleOn.toString()} </button>
-            <textarea type= "text" ref={textRef} onChange={clickHandler} value={v1}  >   </textarea>
-            <textarea type = "text2" onChange={clickHandler} value = {v2}/>
-            <h4>{text} {toggleOn?'on':'Off'} </h4>
-           {gameStatus.map((item,index)=>(
-             <Link to={`/about/${index}`}  key={index} >  <h2 > {item.name} </h2></Link>
-           )) }
-           </div>
-          
-        )
+  function changeHandler(e) {
+    e.preventDefault();
+    var query = e.target.value;
+    if (query === "") return setDisplay(gameStatus);
+    const res = gameStatus.filter(item => item.name.indexOf(query) != -1);
+    setDisplay(res);
+    return;
+  }
+  return (
+    <div style={listWidth}>
+      <br></br>
+      <input
+        type="text"
+        placeholder="Search pokemon here"
+        onChange={changeHandler}
+      />
+      <br></br>
+      {display.map(item => (
+        <Link to={`/about/${item.name}`} key={item.name} style={whiteStyle}>
+          <div style={h4Style}>
+            <PokeCell id={item.name} />
+            <h4 > {item.name} </h4>
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
 }
 
 export default About;

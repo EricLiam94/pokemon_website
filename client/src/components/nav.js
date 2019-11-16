@@ -13,22 +13,24 @@ import Tick from './tick.js'
 
 export default function BasicExample() {
 
-    const navStyle = {color:"white"}
-    const floatRight = {color: 'blue'}
-
+    const whiteFont = {color:"white"}
+    const logoStyle = { height: '10vmin'}
+    var imgSrc = "https://seeklogo.com//images/P/Pikachu-logo-D0AAA93F17-seeklogo.com.png"
   return (
       <nav>
         <ul className= "nav-link">
+        <li>   <img src={imgSrc} style={logoStyle} alt="logo" /> </li>
           <li>
-            <Link style = {navStyle} to="/">Home</Link>
+            <Link style = {whiteFont} to="/">Home</Link>
           </li>
           <li>
-            <Link style = {navStyle} to="/about">About</Link>
+            <Link style = {whiteFont} to="/about">About</Link>
           </li>
           <li>
-            <Link style = {navStyle} to="/dashboard">Dashboard</Link>
+            <Link style = {whiteFont} to="/dashboard">Dashboard</Link>
           </li>
-<li id="time" style={floatRight}>  <Tick name="hello world"/>    </li>
+              <li id="time" style={whiteFont}>  <Tick />    </li>
+
         </ul>
         <hr />
       </nav>
