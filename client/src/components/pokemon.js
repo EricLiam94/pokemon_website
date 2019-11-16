@@ -6,7 +6,8 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-function About() {
+function Pokemon() {
+  
   useEffect(() => {
     fetchData();
   }, []);
@@ -15,9 +16,11 @@ function About() {
   const listWidth = { width: "80%", display: "inline-block", alignItems:'center'};
   const h4Style = { display: "flex", width: "50%" , alignItems:"center"};
   const btStyle = {width: "200px" , marginBottom:"60px" , marginTop:"40px" }
+
   const [gameStatus, setGameStatus] = useState([]);
   const [display, setDisplay] = useState([]);
   const [nextApi, setApi] = useState({});
+
   const fetchData = async () => { 
     if (  Object.getOwnPropertyNames(nextApi).length == 0 && gameStatus.lenth === undefined ){
     const data = await fetch("https://pokeapi.co/api/v2/pokemon");
@@ -38,7 +41,7 @@ function About() {
 
   function changeHandler(e) {
     e.preventDefault();
-    var query = e.target.value;
+    var query = e.target.value.toLowerCase();
     if (query === "") return setDisplay(gameStatus);
     const res = gameStatus.filter(item => item.name.indexOf(query) != -1);
     setDisplay(res);
@@ -72,4 +75,4 @@ function About() {
   );
 }
 
-export default About;
+export default Pokemon;

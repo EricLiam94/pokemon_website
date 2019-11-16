@@ -15,6 +15,10 @@ nav {
   color: white;
 }
 
+.whiteFont {
+  color: white;
+}
+
 .poketable {
   display: "flex";
   width: "50%";
@@ -31,6 +35,9 @@ nav {
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
 }
 
 .App-link {
