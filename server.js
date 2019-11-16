@@ -9,6 +9,9 @@ app.use(cors());
 app.get("/api/customer/:id",(req,res)=>{
   console.log(req.params)
 
+  res.json({name:req.params.id,
+            age:30 })
+
 })
 
 app.get("/api/customer", (req, res) => {

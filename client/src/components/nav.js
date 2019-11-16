@@ -1,6 +1,6 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
+import Tick from './tick.js'
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 export default function BasicExample() {
 
     const navStyle = {color:"white"}
+    const floatRight = {color: 'blue'}
 
   return (
       <nav>
@@ -27,6 +28,7 @@ export default function BasicExample() {
           <li>
             <Link style = {navStyle} to="/dashboard">Dashboard</Link>
           </li>
+<li id="time" style={floatRight}>  <Tick name="hello world"/>    </li>
         </ul>
         <hr />
       </nav>
