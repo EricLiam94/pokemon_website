@@ -65,7 +65,7 @@ function Pokemon() {
             <Col> <h2> Back: </h2></Col>
           </Row>
       {display.map(item => (
-        <Link to={`/about/${item.name}`} key={item.name} style={whiteStyle}>
+        <Link to={`/pokemons/${item.name}`} key={item.name} style={whiteStyle}>
          <PokeCell id={item.name} />
         </Link>
       ))}
