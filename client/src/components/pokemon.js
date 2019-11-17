@@ -5,6 +5,8 @@ import PokeCell from "./pokecell.js";
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import { StickyContainer, Sticky } from 'react-sticky';
+import ArrowDown from './arrowdown.js'
 
 function Pokemon() {
   
@@ -16,7 +18,7 @@ function Pokemon() {
   const listWidth = { width: "80%", display: "inline-block", alignItems:'center'};
   const h4Style = { display: "flex", width: "50%" , alignItems:"center"};
   const btStyle = {width: "200px" , marginBottom:"60px" , marginTop:"40px" }
-
+  const fltStyle = {position:'fixed' , left: '50px' ,bottom:'20px'}
   const [gameStatus, setGameStatus] = useState([]);
   const [display, setDisplay] = useState([]);
   const [nextApi, setApi] = useState({});
@@ -48,17 +50,26 @@ function Pokemon() {
     return;
   }
 
+function backTop(e)
+{
+  e.preventDefault();
+  window.scrollTo({
+  top: 0,
+  left: 0,
+  behavior: 'smooth'
+});
+
+}
+
   return (
     <div style={listWidth} >
+     <StickyContainer >
       <br></br>
-      <input
-        className = "form-control"
-        type="text"
-        placeholder="Search pokemon here"
-        onChange={changeHandler}
-      />
+
       <br></br>
-      <Container >
+      
+      <Container   >
+    
       <Row  style={whiteStyle} className='align-items-center'>
            <Col ><h2 > Name: </h2></Col>
             <Col ><h2> Front: </h2></Col>
@@ -70,7 +81,24 @@ function Pokemon() {
         </Link>
       ))}
       </Container>
-      <button className='btn btn-primary' style={btStyle} onClick={fetchData}> Next</button>
+      <div style= {{ marginBottom:'60px',cursor: 'pointer', marginTop:'40px'}}onClick={fetchData}>
+       <ArrowDown idx='0' />
+       <ArrowDown idx='1' />
+       <ArrowDown idx='2' />
+       </div>
+      
+       <Sticky topOffset={-20} >
+     
+      {({ style,distanceFromTop }) => <input
+        className = "form-control"
+        type="text"
+        style ={style}
+        placeholder="Search Pokemon here"
+        onChange={changeHandler}/> }
+      </Sticky>
+      </StickyContainer>
+       <button className='btn btn-success' style={fltStyle} onClick={backTop}> Go Top </button>
+     
     </div>
   );
 }
