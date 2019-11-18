@@ -23,7 +23,6 @@ function App() {
           <Route  exact path="/pokemons" component = {Pokemons} />
           <Route path="/pokemons/:id" component = {PokeDetail} />
           <Route path="/about" component={About} />
-              
         </Switch>
       </header>
     </div>
