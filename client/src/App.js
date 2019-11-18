@@ -16,9 +16,11 @@ function App() {
       <header className="App-header">
           <Switch>
           <Route exact path="/">
+          <div>
             <h1 className='whiteFont'>Welcome to Pokemon World</h1>
-            <h2 className='whiteFont'> This website is still under development </h2>
+            <p><h2 className='whiteFont'> This website is still under development </h2></p>
             <img src={imgSrc} className='App-logo' alt="logo"/>
+          </div>
           </Route>
           <Route  exact path="/pokemons" component = {Pokemons} />
           <Route path="/pokemons/:id" component = {PokeDetail} />
