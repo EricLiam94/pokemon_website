@@ -26,11 +26,11 @@ export default function BasicExample(props) {
             <Link style = {whiteFont} to="/pokemons">Pokemon</Link>
           </li>
           <li>
-            <Link style = {whiteFont} to="/dashboard">Dashboard</Link>
+            <Link style = {whiteFont} to="/about">About</Link>
           </li>
-              <li id="time" style={whiteFont}>  <Tick />    </li>
-
+               <Tick />  
         </ul>
+        
         <hr />
       </nav>
   );

@@ -18,7 +18,7 @@ function Pokemon() {
   const listWidth = { width: "80%", display: "inline-block", alignItems:'center'};
   const h4Style = { display: "flex", width: "50%" , alignItems:"center"};
   const btStyle = {width: "200px" , marginBottom:"60px" , marginTop:"40px" }
-  const fltStyle = {position:'fixed' , left: '50px' ,bottom:'20px'}
+  const fltStyle = {position:'fixed' , right: '50px' ,bottom:'20px'}
   const [gameStatus, setGameStatus] = useState([]);
   const [display, setDisplay] = useState([]);
   const [nextApi, setApi] = useState({});
