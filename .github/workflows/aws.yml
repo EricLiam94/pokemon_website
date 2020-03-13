@@ -1,0 +1,14 @@
+
+on:
+  release:
+    types: [created,deleted]
+
+name: Deploy to Amazon ECS
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "hellow"
